@@ -4,6 +4,10 @@
 
 Witaj! W tym tutorialu zbudujemy podstawową wersję (MVP) gry platformowej. Twój gracz będzie mógł biegać, skakać pod wpływem grawitacji i zbierać punkty!
 
+```template
+tiles.setTilemap(tilemap`level1`)
+```
+
 ## Krok 1
 
 Zacznijmy od wczytania poziomu. Przeciągnij gotowy blok `||scene:set tilemap to level1||` z sekcji `||scene:Scene||` i umieść go wewnątrz bloku `||loops:on start||`.
