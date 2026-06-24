@@ -5,6 +5,8 @@
 Witaj! W tym tutorialu zbudujemy podstawową wersję (MVP) gry platformowej. Twój gracz będzie mógł biegać, skakać pod wpływem grawitacji i zbierać punkty!
 
 ```template
+let mySprite: Sprite = null
+let coin: Sprite = null
 tiles.setTilemap(tilemap`level1`)
 ```
 
@@ -26,7 +28,7 @@ Kliknij szary kwadrat i narysuj swoją postać. Upewnij się, że jej rodzaj (ki
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+mySprite = sprites.create(img`.`, SpriteKind.Player)
 ```
 
 ## Krok 3
@@ -37,7 +39,7 @@ Kliknij mały plusik `(+)` na tym bloku i zmień wartość `vy` (prędkość pio
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+mySprite = sprites.create(img`.`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 ```
 
@@ -49,7 +51,7 @@ Zmień kliknięciem `acceleration x` na `ay (acceleration y)` i wpisz wartość 
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+mySprite = sprites.create(img`.`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 mySprite.ay = 300
 ```
@@ -72,7 +74,7 @@ Ponieważ nasz gotowy poziom jest długi, gracz szybko uciekłby z ekranu. Znajd
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+mySprite = sprites.create(img`.`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 mySprite.ay = 300
 scene.cameraFollowSprite(mySprite)
@@ -82,16 +84,16 @@ scene.cameraFollowSprite(mySprite)
 
 Dodajmy cel gry. Przeciągnij kolejny blok `||variables(sprites):set mySprite2 to||` na koniec `||loops:on start||`. Zmień nazwę zmiennej na `coin` (moneta) i zmień jej rodzaj (kind) z `Player` na `Food`. Narysuj monetę.
 
-Użyj bloku `||scene:place mySprite on top of random||` z sekcji `||scene:Scene||`, aby umieścić monetę losowo na kafelku trawy (`forestTiles1`).
+Użyj bloku `||scene:place mySprite on top of random||` z sekcji `||scene:Scene||`, aby umieścić monetę losowo na kafelku podłogi (`myTiles.tile1`).
 
 ```blocks
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`.`, SpriteKind.Player)
+mySprite = sprites.create(img`.`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 mySprite.ay = 300
 scene.cameraFollowSprite(mySprite)
-let coin = sprites.create(img`.`, SpriteKind.Food)
-tiles.placeOnRandomTile(coin, sprites.builtin.forestTiles1)
+coin = sprites.create(img`.`, SpriteKind.Food)
+tiles.placeOnRandomTile(coin, myTiles.tile1)
 ```
 
 ## Krok 8
